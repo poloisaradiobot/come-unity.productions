@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>come-unity — Edmonton House & Deep House</title>
+  <meta name="description" content="come-unity is Edmonton's home for house and deep house. Elevate Saturdays at The Cask & Barrel.">
+  <meta property="og:title" content="come-unity — Edmonton House & Deep House">
+  <meta property="og:description" content="Elevate Saturdays. Edmonton's bi-weekly house night at The Cask & Barrel.">
+  <meta property="og:image" content="https://come-unity.productions/assets/logo.png">
+  <meta property="og:url" content="https://come-unity.productions">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="assets/logo.png" alt="come-unity">
+    come-unity
+  </a>
+  <div class="nav-links">
+    <a href="artists/" >artists</a>
+    <a href="events/"  >events</a>
+    <a href="https://instagram.com/poloismz" target="_blank" rel="noopener">instagram</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image: url('assets/hero.jpg');"></div>
+  <div class="hero-content">
+    <span class="eyebrow">edmonton house &amp; deep house</span>
+    <h1>come-unity</h1>
+    <p class="hero-sub">elevate saturdays · the cask &amp; barrel</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="events/elevate/">next event</a>
+      <a class="btn btn-outline" href="events/">all events</a>
+    </div>
+  </div>
+  <div class="scroll-hint">↓ scroll</div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-label"><span class="eyebrow">about</span></div>
+    <div class="grid-2" style="gap: 64px; align-items: start;">
+      <div>
+        <h2 style="font-size:1.9rem; margin-bottom:20px;">who we are</h2>
+        <p style="color:var(--text-dim); line-height:1.7; margin-bottom:16px;">
+          <strong style="color:var(--text);">come-unity</strong> is Edmonton's home for house and deep house —
+          a bi-weekly night built on the idea that the dancefloor is a place people actually find each other.
+        </p>
+        <p style="color:var(--text-dim); line-height:1.7; margin-bottom:16px;">
+          Every other Saturday at The Cask &amp; Barrel. Low lights, deep low end,
+          a crowd that came to move.
+        </p>
+        <p class="pull">rooted in edmonton. built for the floor.</p>
+      </div>
+      <div>
+        <h2 style="font-size:1.9rem; margin-bottom:20px;">the story</h2>
+        <p style="color:var(--text-dim); line-height:1.7; margin-bottom:16px;">
+          What started as a residency became a standing invitation — Elevate Saturdays,
+          every two weeks, an open floor for the city's house heads and the curious alike.
+        </p>
+        <p style="color:var(--text-dim); line-height:1.7; margin-bottom:24px;">
+          come-unity exists to grow that further: more nights, more artists,
+          more of Edmonton's electronic music community in one room.
+        </p>
+        <a class="btn btn-outline" href="artists/">meet the artists →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT EVENT TEASER -->
+<section class="section" style="padding-top: 0;" id="events-teaser">
+  <div class="section-inner">
+    <div class="section-label"><span class="eyebrow">upcoming</span></div>
+    <div id="home-events" class="grid-2"></div>
+    <div style="text-align:center; margin-top:36px;">
+      <a class="btn btn-outline" href="events/">view all events →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img class="foot-logo" src="assets/logo.png" alt="come-unity">
+  <div class="foot-brand">come-unity</div>
+  <div class="foot-links">
+    <a href="artists/">artists</a>
+    <a href="events/">events</a>
+    <a href="https://instagram.com/poloismz" target="_blank" rel="noopener">instagram</a>
+    <a href="mailto:hello@come-unity.productions">hello@come-unity.productions</a>
+  </div>
+  <div class="copyright">© 2026 come-unity · Edmonton, AB</div>
+</footer>
+
+<script>
+  /* shared events data — also used on events/ page */
+  const EVENTS = [
+    {
+      title:  "elevate saturdays",
+      date:   "date tbd",
+      venue:  "The Cask & Barrel",
+      lineup: "elevate<br>saturdays",
+      image:  "",
+      status: "upcoming",
+      slug:   "events/elevate/"
+    }
+    /* add more events here */
+  ];
+
+  function renderEventCards(events, containerId, limit) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const list = limit ? events.slice(0, limit) : events;
+    if (!list.length) {
+      container.innerHTML = '<p style="color:var(--text-dim);font-family:Space Mono,monospace;font-size:.85rem;">no upcoming events listed yet.</p>';
+      return;
+    }
+    container.innerHTML = list.map(ev => `
+      <a class="event-card" href="${ev.slug || 'events/'}">
+        <div class="flyer${ev.image ? '' : ''}" style="${ev.image ? `background-image:url('${ev.image}')` : ''}">
+          <div>
+            <div class="venue-tag">${ev.venue}</div>
+            <div class="date-pill">${ev.date}</div>
+          </div>
+          <div class="lineup-text">${ev.lineup}</div>
+        </div>
+        <div class="body">
+          <h3>${ev.title}</h3>
+          <div class="meta">${ev.date} · ${ev.venue}</div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  renderEventCards(EVENTS, 'home-events', 2);
+</script>
+
+</body>
+</html>
