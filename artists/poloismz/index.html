@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>poloismz — come-unity artists</title>
-  <meta name="description" content="Poloismz — resident DJ and founder of come-unity. House and deep house, Edmonton AB.">
+  <meta name="description" content="Poloismz — Resident DJ and Founder of come-unity. House and Deep House, Edmonton AB.">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <style>
     .profile-hero {
@@ -53,27 +53,33 @@
       color: var(--text-dim); border: 1px solid var(--line);
       padding: 5px 12px; border-radius: 999px;
     }
+
+    /* ── MIXES ── */
     .mix-list { display: flex; flex-direction: column; gap: 14px; }
     .mix-item {
       background: var(--bg-card); border: 1px solid var(--line);
-      border-radius: var(--radius); overflow: hidden; transition: border-color .2s;
+      border-radius: var(--radius); overflow: hidden;
+      transition: border-color .2s;
     }
     .mix-item:hover { border-color: var(--accent-dim); }
-    .mix-item-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; }
-    .mix-embed { border-top: 1px solid var(--line); }
-    .mix-embed iframe { display: block; width: 100%; border: none; }
-
+    .mix-item-row {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 20px;
+    }
     .mix-num { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--accent-dim); min-width: 24px; }
     .mix-info { flex: 1; }
     .mix-info .title { font-size: 1rem; font-weight: 600; text-transform: lowercase; }
     .mix-info .detail { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-top: 3px; }
     .mix-link { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent-2); white-space: nowrap; }
+    .mix-embed { border-top: 1px solid var(--line); }
+    .mix-embed iframe { display: block; width: 100%; border: none; }
 
     /* ── WHAT I LISTEN TO ── */
     .listen-grid { display: flex; flex-direction: column; gap: 20px; }
     .listen-item {
       background: var(--bg-card); border: 1px solid var(--line);
       border-radius: var(--radius); overflow: hidden;
+      transition: border-color .2s;
     }
     .listen-item:hover { border-color: var(--accent-dim); }
     .listen-label {
@@ -122,8 +128,8 @@
     come-unity
   </a>
   <div class="nav-links">
-    <a href="../../artists/" class="active">artists</a>
-    <a href="../../events/">events</a>
+    <a href="../../artists/" class="active">Artists</a>
+    <a href="../../events/">Events</a>
     <a href="https://instagram.com/poloismz_radio" target="_blank" rel="noopener">instagram</a>
   </div>
 </nav>
@@ -133,7 +139,7 @@
   <div class="breadcrumb">
     <a href="/">come-unity</a>
     <span>›</span>
-    <a href="../../artists/">artists</a>
+    <a href="../../artists/">Artists</a>
     <span>›</span> poloismz
   </div>
 </div>
@@ -144,7 +150,8 @@
   <!-- LEFT: PHOTO + SOCIALS -->
   <div class="profile-photo-wrap">
     <div class="profile-photo">
-      <!-- Replace with real photo: add style="background-image:url('../../assets/poloismz.jpg')" to .profile-photo above -->
+      <!-- To add a real photo: replace the style on .profile-photo above with
+           style="background-image:url('../../assets/poloismz.jpg')" -->
       <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="pg" cx="50%" cy="50%" r="50%">
@@ -158,9 +165,9 @@
     </div>
     <div class="profile-socials">
       <a href="https://instagram.com/poloismz_radio" target="_blank" rel="noopener">instagram</a>
+      <a href="https://soundcloud.com/poloismz_radio" target="_blank" rel="noopener">soundcloud</a>
       <a href="#mixes">mixes</a>
       <a href="#listening">listening</a>
-      <!-- add soundcloud, mixcloud etc. here -->
     </div>
   </div>
 
@@ -179,7 +186,7 @@
     </div>
 
     <p>
-      PoloIsMZ is the DJ and producer behind come-unity — Edmonton's bi-weekly house night, Elevate Saturdays.
+      Poloismz is the DJ and founder behind come-unity — Edmonton's bi-weekly house night, Elevate Saturdays.
       Working across house, deep house, and the textures between, the sets are built around feel rather than
       formula: reading the room, building slow, going deep.
     </p>
@@ -192,32 +199,32 @@
 
     <hr class="divider">
 
-    <!-- GENRES / SOUNDS -->
+    <!-- IN THE MIX -->
     <div class="sub-section-label">in the mix</div>
     <p style="color:var(--text-dim); line-height:1.7; margin-bottom:32px;">
       Sets typically move from warm, vocal-driven deep house through to rolling, minimal-leaning grooves —
-      tempo staying tight around 122–126 BPM. Chicago soul influence on one end, Afro house swing on the other.
+      tempo staying tight around 110–128 BPM. Chicago soul influence on one end, tech house swing on the other.
       Never pre-planned. Always live, always reactive.
     </p>
 
     <hr class="divider">
 
-    <!-- MIXES -->
+    <!-- MIXES & RECORDINGS -->
     <div id="mixes" class="sub-section-label">mixes &amp; recordings</div>
     <div class="mix-list" id="mix-list"></div>
 
     <hr class="divider">
 
     <!-- WHAT I LISTEN TO -->
-    <div id="listening" class="sub-section-label">what i listen to</div>
+    <div id="listening" class="sub-section-label">what i'm listening to</div>
     <p style="color:var(--text-dim); line-height:1.7; margin-bottom:24px;">
-      Playlists, artists, and records that shape the sound — what's on rotation off the clock.
+      Playlists, artists, and records that shape the sound — what's on rotation on &amp; off the clock.
     </p>
     <div id="listening-embeds"></div>
 
     <hr class="divider">
 
-    <!-- RESIDENCY LINK -->
+    <!-- RESIDENCY -->
     <div class="sub-section-label">residency</div>
     <a class="event-card" href="../../events/elevate/" style="max-width:480px;">
       <div class="flyer">
@@ -251,33 +258,31 @@
 <script>
 /* =========================================================
    MIXES & RECORDINGS
+   ─────────────────────────────────────────────────────────
    Fields:
      title   - mix name
-     detail  - e.g. "April 2026 · 62 min"
-     url     - link to SoundCloud / Mixcloud etc. ("" to hide button)
+     detail  - e.g. "house / deep house · 45 min"
+     src     - SoundCloud embed src URL (shows inline player)
+                 Get it from SoundCloud → Share → Embed
+                 Copy ONLY the src="..." URL from the iframe
+                 Then change auto_play=true  →  auto_play=false
+     url     - plain listen link (leave "" if using src above)
    ========================================================= */
   const mixes = [
     {
       title:  "In Da Clubhouse",
       detail: "house / deep house",
-      // src: paste the SoundCloud embed src URL here to show the player inline
-      // url: use this instead (or as well) for a plain listen → link
       src:    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2325276179&color=%23c87dff&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true",
       url:    ""
     }
-    /* ── HOW TO ADD MORE ──────────────────────────────────────────────────
-    To add a mix with an embedded SoundCloud player:
-      1. On SoundCloud open the track → Share → Embed
-      2. Copy the src="..." URL from the iframe code
-      3. Change auto_play=true  →  auto_play=false  in the URL
-      4. Add a new entry below:
+    /* ── ADD MORE MIXES HERE ───────────────────────────────
     {
-      title:  "your mix name",
-      detail: "genre · duration",
+      title:  "your mix title",
+      detail: "house / deep house · 60 min",
       src:    "https://w.soundcloud.com/player/?url=...&auto_play=false...",
-      url:    ""       // optional: plain link as fallback
+      url:    ""
     },
-    ────────────────────────────────────────────────────────────────────── */
+    ──────────────────────────────────────────────────────── */
   ];
 
   const list = document.getElementById('mix-list');
@@ -294,83 +299,61 @@
           </div>
           ${m.url ? `<a class="mix-link" href="${m.url}" target="_blank" rel="noopener">listen →</a>` : ''}
         </div>
-        ${m.src ? `<div class="mix-embed"><iframe scrolling="no" allow="autoplay; encrypted-media" height="166" src="${m.src}"></iframe></div>` : ''}
+        ${m.src ? `
+        <div class="mix-embed">
+          <iframe scrolling="no" allow="autoplay; encrypted-media" height="166" src="${m.src}"></iframe>
+        </div>` : ''}
       </div>
     `).join('');
   }
 
 
 /* =========================================================
-   WHAT I LISTEN TO
+   WHAT I'M LISTENING TO
    ─────────────────────────────────────────────────────────
-   Two entry types:
-
-   TYPE "embed" — full player (Spotify or Tidal)
-   ─────────────────────────────────────────────
-   How to get the src URL:
-     Spotify → open playlist/album → ··· → Share → Embed
-               copy ONLY the src="..." value from the iframe
-     Tidal   → open playlist/album → ··· → Share → Copy embed code
-               copy ONLY the src="..." value from the iframe
-
-   Fields:
-     platform  "spotify" | "tidal"
-     src       the embed src URL (just the URL, not the full iframe tag)
-     height    player height in px
-                 Spotify: 352 = full player, 152 = compact single track
-                 Tidal:   300 recommended
-     label     short tag shown above the player, e.g. "deep house playlist"
-     note      optional one-liner description
+   TYPE "embed" — shows a full inline player
+     Fields:
+       platform  "spotify" | "tidal" | "soundcloud"
+       src       embed src URL only (not the full iframe tag)
+       height    player height in px (tidal: 275, spotify: 352)
+       label     short tag e.g. "deep house playlist"
+       note      optional description line
 
    TYPE "link" — simple card with an open button
-   ───────────────────────────────────────────────
-   Use when you just want to point to an artist, album, or
-   playlist without embedding a full player.
-
-   Fields:
-     platform  "spotify" | "tidal" | "soundcloud" | "youtube" | etc.
-     title     name of the artist / album / playlist
-     url       full link
-     label     short tag, e.g. "artist" | "album" | "playlist"
-     note      optional one-liner description
-
-   ─────────────────────────────────────────────────────────
-   EXAMPLES (remove the comment markers to activate):
-
-   Spotify playlist embed:
-   {
-     type:     "embed",
-     platform: "spotify",
-     src:      "https://open.spotify.com/embed/playlist/YOUR_ID?utm_source=generator",
-     height:   352,
-     label:    "house rotation",
-     note:     "what's on while I'm working"
-   },
-
-   Tidal playlist embed:
-   {
-     type:     "embed",
-     platform: "tidal",
-     src:      "https://embed.tidal.com/playlists/YOUR_ID",
-     height:   300,
-     label:    "deep house favorites",
-     note:     "tracks I keep coming back to"
-   },
-
-   Simple link card:
-   {
-     type:     "link",
-     platform: "spotify",
-     title:    "Larry Heard",
-     url:      "https://open.spotify.com/artist/...",
-     label:    "artist",
-     note:     "the blueprint for deep house"
-   },
+     Fields:
+       platform  any string e.g. "spotify" | "tidal"
+       title     artist / album / playlist name
+       url       full link to open
+       label     short tag e.g. "artist" | "playlist"
+       note      optional description line
    ========================================================= */
   const listening = [
-
-    /* ── ADD YOUR ENTRIES HERE ── */
-
+    {
+      type:     "embed",
+      platform: "tidal",
+      src:      "https://embed.tidal.com/playlists/d4f8f5b8-7ab8-4889-aa79-73730047d1b6",
+      height:   275,
+      label:    "deep house favorites",
+      note:     "tracks I keep coming back to"
+    }
+    /* ── ADD MORE HERE ─────────────────────────────────────
+    {
+      type:     "embed",
+      platform: "spotify",
+      src:      "https://open.spotify.com/embed/playlist/YOUR_ID?utm_source=generator",
+      height:   352,
+      label:    "house rotation",
+      note:     "what's on while I'm working"
+    },
+    {
+      type:     "link",
+      platform: "tidal",
+      title:    "Larry Heard",
+      url:      "https://tidal.com/artist/...",
+      label:    "artist",
+      note:     "the blueprint for deep house"
+    },
+    ──────────────────────────────────────────────────────── */
   ];
 
   const embedContainer = document.getElementById('listening-embeds');
@@ -388,14 +371,21 @@
         if (item.type === 'embed') {
           const allow = item.platform === 'spotify'
             ? 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-            : 'fullscreen; autoplay';
+            : 'encrypted-media; fullscreen; clipboard-write; web-share';
+          const sandbox = item.platform === 'tidal'
+            ? 'sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"'
+            : '';
           return `
             <div class="listen-item">
               ${labelHTML}${noteHTML}
-              <iframe src="${item.src}"
+              <iframe
+                src="${item.src}"
                 height="${item.height || 300}"
                 allow="${allow}"
-                loading="lazy"></iframe>
+                ${sandbox}
+                loading="lazy"
+                style="color-scheme: light dark">
+              </iframe>
             </div>`;
         } else {
           return `
