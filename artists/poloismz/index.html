@@ -66,6 +66,45 @@
     .mix-info .title { font-size: 1rem; font-weight: 600; text-transform: lowercase; }
     .mix-info .detail { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-top: 3px; }
     .mix-link { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent-2); white-space: nowrap; }
+
+    /* ── WHAT I LISTEN TO ── */
+    .listen-grid { display: flex; flex-direction: column; gap: 20px; }
+    .listen-item {
+      background: var(--bg-card); border: 1px solid var(--line);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .listen-item:hover { border-color: var(--accent-dim); }
+    .listen-label {
+      padding: 14px 18px 0;
+      font-family: 'Space Mono', monospace; font-size: 0.7rem;
+      color: var(--accent-2); letter-spacing: 0.12em; text-transform: lowercase;
+    }
+    .listen-note {
+      padding: 4px 18px 12px;
+      font-size: 0.88rem; color: var(--text-dim); line-height: 1.5;
+    }
+    .listen-item iframe {
+      display: block; width: 100%; border: none;
+      border-top: 1px solid var(--line);
+    }
+    .listen-link-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 16px 18px;
+    }
+    .listen-link-row .l-platform {
+      font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 4px;
+    }
+    .listen-link-row .l-title { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .listen-link-row .l-note  { font-size: 0.82rem; color: var(--text-dim); margin-top: 3px; }
+    .listen-link-row a.open-btn {
+      flex-shrink: 0;
+      font-family: 'Space Mono', monospace; font-size: 0.72rem;
+      color: var(--accent-2); border: 1px solid var(--line);
+      padding: 7px 16px; border-radius: 999px;
+      transition: border-color .2s, color .2s; white-space: nowrap;
+    }
+    .listen-link-row a.open-btn:hover { border-color: var(--accent-2); color: var(--text); }
+
     @media (max-width: 860px) {
       .profile-layout { grid-template-columns: 1fr; padding: 50px 22px 80px; gap: 40px; }
       .profile-hero { padding: 140px 22px 0; }
@@ -118,6 +157,7 @@
     <div class="profile-socials">
       <a href="https://instagram.com/poloismz_radio" target="_blank" rel="noopener">instagram</a>
       <a href="#mixes">mixes</a>
+      <a href="#listening">listening</a>
       <!-- add soundcloud, mixcloud etc. here -->
     </div>
   </div>
@@ -166,6 +206,15 @@
 
     <hr class="divider">
 
+    <!-- WHAT I LISTEN TO -->
+    <div id="listening" class="sub-section-label">what i listen to</div>
+    <p style="color:var(--text-dim); line-height:1.7; margin-bottom:24px;">
+      Playlists, artists, and records that shape the sound — what's on rotation off the clock.
+    </p>
+    <div id="listening-embeds"></div>
+
+    <hr class="divider">
+
     <!-- RESIDENCY LINK -->
     <div class="sub-section-label">residency</div>
     <a class="event-card" href="../../events/elevate/" style="max-width:480px;">
@@ -199,16 +248,15 @@
 
 <script>
 /* =========================================================
-   ADD MIXES / RECORDINGS HERE
-   Each entry shows up as a row in the mixes section.
+   MIXES & RECORDINGS
    Fields:
      title   - mix name
-     detail  - e.g. "April 2026 · 62 min" or "Elevate Vol. 3"
-     url     - link to SoundCloud / Mixcloud / etc. (leave "" to disable)
+     detail  - e.g. "April 2026 · 62 min"
+     url     - link to SoundCloud / Mixcloud etc. ("" to hide button)
    ========================================================= */
   const mixes = [
     {
-      title:  "In Da Clubhouse ",
+      title:  "In Da Clubhouse",
       detail: "house / deep house",
       url:    "https://on.soundcloud.com/av5qiXOMXzoovDVeNj"
     }
@@ -230,7 +278,126 @@
       </div>
     `).join('');
   }
+
+
+/* =========================================================
+   WHAT I LISTEN TO
+   ─────────────────────────────────────────────────────────
+   Two entry types:
+
+   TYPE "embed" — full player (Spotify or Tidal)
+   ─────────────────────────────────────────────
+   How to get the src URL:
+     Spotify → open playlist/album → ··· → Share → Embed
+               copy ONLY the src="..." value from the iframe
+     Tidal   → open playlist/album → ··· → Share → Copy embed code
+               copy ONLY the src="..." value from the iframe
+
+   Fields:
+     platform  "spotify" | "tidal"
+     src       the embed src URL (just the URL, not the full iframe tag)
+     height    player height in px
+                 Spotify: 352 = full player, 152 = compact single track
+                 Tidal:   300 recommended
+     label     short tag shown above the player, e.g. "deep house playlist"
+     note      optional one-liner description
+
+   TYPE "link" — simple card with an open button
+   ───────────────────────────────────────────────
+   Use when you just want to point to an artist, album, or
+   playlist without embedding a full player.
+
+   Fields:
+     platform  "spotify" | "tidal" | "soundcloud" | "youtube" | etc.
+     title     name of the artist / album / playlist
+     url       full link
+     label     short tag, e.g. "artist" | "album" | "playlist"
+     note      optional one-liner description
+
+   ─────────────────────────────────────────────────────────
+   EXAMPLES (remove the comment markers to activate):
+
+   Spotify playlist embed:
+   {
+     type:     "embed",
+     platform: "spotify",
+     src:      "https://open.spotify.com/embed/playlist/YOUR_ID?utm_source=generator",
+     height:   352,
+     label:    "house rotation",
+     note:     "what's on while I'm working"
+   },
+
+   Tidal playlist embed:
+   {
+     type:     "embed",
+     platform: "tidal",
+     src:      "https://embed.tidal.com/playlists/YOUR_ID",
+     height:   300,
+     label:    "deep house favorites",
+     note:     "tracks I keep coming back to"
+   },
+
+   Simple link card:
+   {
+     type:     "link",
+     platform: "spotify",
+     title:    "Larry Heard",
+     url:      "https://open.spotify.com/artist/...",
+     label:    "artist",
+     note:     "the blueprint for deep house"
+   },
+   ========================================================= */
+  const listening = [
+
+    /* ── ADD YOUR ENTRIES HERE ── */
+
+  ];
+
+  const embedContainer = document.getElementById('listening-embeds');
+
+  if (!listening.length) {
+    embedContainer.innerHTML = '<p style="color:var(--text-dim);font-family:\'Space Mono\',monospace;font-size:.8rem;">coming soon.</p>';
+  } else {
+    embedContainer.innerHTML = '<div class="listen-grid">' +
+      listening.map(item => {
+        const labelHTML = item.label
+          ? `<div class="listen-label">${item.platform} · ${item.label}</div>` : '';
+        const noteHTML  = item.note
+          ? `<div class="listen-note">${item.note}</div>` : '';
+
+        if (item.type === 'embed') {
+          const allow = item.platform === 'spotify'
+            ? 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+            : 'fullscreen; autoplay';
+          return `
+            <div class="listen-item">
+              ${labelHTML}${noteHTML}
+              <iframe src="${item.src}"
+                height="${item.height || 300}"
+                allow="${allow}"
+                loading="lazy"></iframe>
+            </div>`;
+        } else {
+          return `
+            <div class="listen-item">
+              <div class="listen-link-row">
+                <div>
+                  <div class="l-platform">${item.platform}${item.label ? ' · ' + item.label : ''}</div>
+                  <div class="l-title">${item.title}</div>
+                  ${item.note ? `<div class="l-note">${item.note}</div>` : ''}
+                </div>
+                <a class="open-btn" href="${item.url}" target="_blank" rel="noopener">open →</a>
+              </div>
+            </div>`;
+        }
+      }).join('') +
+    '</div>';
+  }
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
