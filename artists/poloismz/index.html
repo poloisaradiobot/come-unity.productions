@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>poloismz — come-unity artists</title>
-  <meta name="description" content="Poloismz — Resident DJ and Founder of come-unity. House and Deep House, Edmonton AB.">
+  <meta name="description" content="Poloismz — resident DJ and founder of come-unity. House and deep house, Edmonton AB.">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <style>
     .profile-hero {
@@ -55,12 +55,14 @@
     }
     .mix-list { display: flex; flex-direction: column; gap: 14px; }
     .mix-item {
-      display: flex; align-items: center; gap: 16px;
       background: var(--bg-card); border: 1px solid var(--line);
-      border-radius: var(--radius); padding: 16px 20px;
-      transition: border-color .2s;
+      border-radius: var(--radius); overflow: hidden; transition: border-color .2s;
     }
     .mix-item:hover { border-color: var(--accent-dim); }
+    .mix-item-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; }
+    .mix-embed { border-top: 1px solid var(--line); }
+    .mix-embed iframe { display: block; width: 100%; border: none; }
+
     .mix-num { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--accent-dim); min-width: 24px; }
     .mix-info { flex: 1; }
     .mix-info .title { font-size: 1rem; font-weight: 600; text-transform: lowercase; }
@@ -120,8 +122,8 @@
     come-unity
   </a>
   <div class="nav-links">
-    <a href="../../artists/" class="active">Artists</a>
-    <a href="../../events/">Events</a>
+    <a href="../../artists/" class="active">artists</a>
+    <a href="../../events/">events</a>
     <a href="https://instagram.com/poloismz_radio" target="_blank" rel="noopener">instagram</a>
   </div>
 </nav>
@@ -131,7 +133,7 @@
   <div class="breadcrumb">
     <a href="/">come-unity</a>
     <span>›</span>
-    <a href="../../artists/">Artists</a>
+    <a href="../../artists/">artists</a>
     <span>›</span> poloismz
   </div>
 </div>
@@ -177,7 +179,7 @@
     </div>
 
     <p>
-      Poloismz is the DJ and founder behind come-unity — Edmonton's bi-weekly house night, Elevate Saturdays.
+      PoloIsMZ is the DJ and producer behind come-unity — Edmonton's bi-weekly house night, Elevate Saturdays.
       Working across house, deep house, and the textures between, the sets are built around feel rather than
       formula: reading the room, building slow, going deep.
     </p>
@@ -194,7 +196,7 @@
     <div class="sub-section-label">in the mix</div>
     <p style="color:var(--text-dim); line-height:1.7; margin-bottom:32px;">
       Sets typically move from warm, vocal-driven deep house through to rolling, minimal-leaning grooves —
-      tempo staying tight around 110–128 BPM. Chicago soul influence on one end, tech house swing on the other.
+      tempo staying tight around 122–126 BPM. Chicago soul influence on one end, Afro house swing on the other.
       Never pre-planned. Always live, always reactive.
     </p>
 
@@ -207,9 +209,9 @@
     <hr class="divider">
 
     <!-- WHAT I LISTEN TO -->
-    <div id="listening" class="sub-section-label">What I'm listening to</div>
+    <div id="listening" class="sub-section-label">what i listen to</div>
     <p style="color:var(--text-dim); line-height:1.7; margin-bottom:24px;">
-      Playlists, artists, and records that shape the sound — what's on rotation on & off the clock.
+      Playlists, artists, and records that shape the sound — what's on rotation off the clock.
     </p>
     <div id="listening-embeds"></div>
 
@@ -258,9 +260,24 @@
     {
       title:  "In Da Clubhouse",
       detail: "house / deep house",
-      url:    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2325276179&color=%232500ff&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/poloismz_radio" title="Poloismz RADIO" target="_blank" style="color: #cccccc; text-decoration: none;">Poloismz RADIO</a> · <a href="https://soundcloud.com/poloismz_radio/poloismz-clubhouse" title="In Da Clubhouse" target="_blank" style="color: #cccccc; text-decoration: none;">In Da Clubhouse</a></div>" 
+      // src: paste the SoundCloud embed src URL here to show the player inline
+      // url: use this instead (or as well) for a plain listen → link
+      src:    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2325276179&color=%23c87dff&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true",
+      url:    ""
     }
-    /* add more here */
+    /* ── HOW TO ADD MORE ──────────────────────────────────────────────────
+    To add a mix with an embedded SoundCloud player:
+      1. On SoundCloud open the track → Share → Embed
+      2. Copy the src="..." URL from the iframe code
+      3. Change auto_play=true  →  auto_play=false  in the URL
+      4. Add a new entry below:
+    {
+      title:  "your mix name",
+      detail: "genre · duration",
+      src:    "https://w.soundcloud.com/player/?url=...&auto_play=false...",
+      url:    ""       // optional: plain link as fallback
+    },
+    ────────────────────────────────────────────────────────────────────── */
   ];
 
   const list = document.getElementById('mix-list');
@@ -269,12 +286,15 @@
   } else {
     list.innerHTML = mixes.map((m, i) => `
       <div class="mix-item">
-        <span class="mix-num">${String(i + 1).padStart(2, '0')}</span>
-        <div class="mix-info">
-          <div class="title">${m.title}</div>
-          <div class="detail">${m.detail}</div>
+        <div class="mix-item-row">
+          <span class="mix-num">${String(i + 1).padStart(2, '0')}</span>
+          <div class="mix-info">
+            <div class="title">${m.title}</div>
+            <div class="detail">${m.detail}</div>
+          </div>
+          ${m.url ? `<a class="mix-link" href="${m.url}" target="_blank" rel="noopener">listen →</a>` : ''}
         </div>
-        ${m.url ? `<a class="mix-link" href="${m.url}" target="_blank" rel="noopener">listen →</a>` : ''}
+        ${m.src ? `<div class="mix-embed"><iframe scrolling="no" allow="autoplay; encrypted-media" height="166" src="${m.src}"></iframe></div>` : ''}
       </div>
     `).join('');
   }
@@ -349,14 +369,7 @@
    ========================================================= */
   const listening = [
 
-    {
-  type:     "embed",
-  platform: "tidal",
-  src:      "https://tidal.com/playlist/d4f8f5b8-7ab8-4889-aa79-73730047d1b6",
-  height:   300,
-  label:    "deep house favorites",
-  note:     "tracks I keep coming back to"
-},
+    /* ── ADD YOUR ENTRIES HERE ── */
 
   ];
 
@@ -401,10 +414,6 @@
     '</div>';
   }
 </script>
-
-</body>
-</html>
-
 
 </body>
 </html>
