@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>elevate saturdays — come-unity</title>
+  <meta name="description" content="Elevate Saturdays — Edmonton's bi-weekly house & deep house night at The Cask & Barrel. By come-unity.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <style>
+    /* ── HERO ── */
+    .elevate-hero {
+      position: relative; height: 100vh; min-height: 640px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+
+    /* Banner photo background */
+    .elevate-bg {
+      position: absolute; inset: 0;
+      background-image: url('../../assets/elevate/Elevate_Banner.jpg');
+      background-size: cover; background-position: center 40%;
+    }
+    .elevate-bg::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(7,7,10,0.45) 0%,
+        rgba(7,7,10,0.55) 40%,
+        rgba(7,7,10,0.90) 80%,
+        rgba(7,7,10,1.00) 100%
+      );
+    }
+
+    /* Arrow watermark — sits between photo and content */
+    .elevate-arrow {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: flex-end;
+      pointer-events: none; z-index: 1;
+      padding-right: 4vw;
+    }
+    .elevate-arrow img {
+      width: clamp(280px, 42vw, 560px);
+      opacity: 0.08;
+      mix-blend-mode: screen;
+      user-select: none;
+    }
+
+    /* Hero content */
+    .elevate-content {
+      position: relative; z-index: 2; padding: 0 24px;
+      display: flex; flex-direction: column; align-items: center;
+    }
+
+    /* Elevate logo replaces the h1 text */
+    .elevate-logo-img {
+      width: clamp(260px, 42vw, 520px);
+      mix-blend-mode: screen; /* knocks out white background on dark overlay */
+      margin-bottom: 8px;
+    }
+
+    .elevate-content .sub-title {
+      font-size: clamp(0.9rem, 2.2vw, 1.3rem);
+      font-weight: 500; color: var(--text-dim);
+      text-transform: lowercase; margin-top: 6px;
+    }
+    .info-strip {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 12px; margin-top: 28px;
+    }
+    .info-strip .info-pill {
+      font-family: 'Space Mono', monospace; font-size: 0.78rem;
+      color: var(--text); border: 1px solid var(--line);
+      padding: 8px 18px; border-radius: 999px;
+      background: rgba(7,7,10,0.55);
+    }
+
+    /* ── DETAILS SECTION ── */
+    .details-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+      max-width: 1180px; margin: 0 auto;
+    }
+    .detail-block h2 { font-size: 1.6rem; margin-bottom: 18px; }
+    .detail-block p  { color: var(--text-dim); line-height: 1.75; margin-bottom: 14px; }
+    .detail-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 0; border-bottom: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+    .detail-row .label { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--text-dim); }
+    .detail-row .value { font-weight: 600; }
+    .upcoming-dates { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+    .date-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--bg-card); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 14px 20px;
+      transition: border-color .2s;
+    }
+    .date-row:hover { border-color: var(--accent-dim); }
+    .date-row .d-date { font-weight: 600; font-size: 0.95rem; }
+    .date-row .d-meta { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--text-dim); }
+    .date-row .d-ticket .btn { font-size: 0.75rem; padding: 7px 16px; }
+    .residents-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+    .resident-chip {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--bg-card); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 12px 18px;
+      transition: border-color .2s; font-size: 0.9rem; font-weight: 600;
+    }
+    .resident-chip:hover { border-color: var(--accent-dim); }
+    .resident-chip .chip-role { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--accent-2); }
+
+    /* Elevate logo mark in the about section */
+    .section-logo {
+      width: 80px; opacity: 0.85;
+      mix-blend-mode: screen;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 860px) {
+      .details-layout { grid-template-columns: 1fr; gap: 48px; }
+      .elevate-arrow img { width: 55vw; opacity: 0.06; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="../../assets/logo.png" alt="come-unity">
+    come-unity
+  </a>
+  <div class="nav-links">
+    <a href="../../artists/">artists</a>
+    <a href="../../events/" class="active">events</a>
+    <a href="https://instagram.com/poloismz_radio" target="_blank" rel="noopener">instagram</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="elevate-hero">
+  <!-- Photo background -->
+  <div class="elevate-bg"></div>
+
+  <!-- Arrow watermark -->
+  <div class="elevate-arrow">
+    <img src="../../assets/elevate/Elevate_Arrow.png" alt="">
+  </div>
+
+  <!-- Content -->
+  <div class="elevate-content">
+    <span class="eyebrow">come-unity presents</span>
+
+    <!-- Elevate logo replaces the text headline -->
+    <img
+      class="elevate-logo-img"
+      src="../../assets/elevate/Elevate_LOGO_00.png"
+      alt="Elevate Saturdays">
+
+    <div class="sub-title">house &amp; deep house · edmonton</div>
+
+    <div class="info-strip">
+      <span class="info-pill">📍 the cask &amp; barrel</span>
+      <span class="info-pill">🗓 every other saturday</span>
+      <span class="info-pill">🕘 9pm – 2am</span>
+    </div>
+
+    <div class="hero-ctas" style="margin-top:28px;" id="hero-ticket-cta"></div>
+  </div>
+
+  <div class="scroll-hint">↓ scroll</div>
+</section>
+
+<!-- DETAILS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="details-layout">
+
+      <!-- ABOUT -->
+      <div class="detail-block">
+        <!-- Small arrow logo mark above the section heading -->
+        <img class="section-logo" src="../../assets/elevate/Elevate_Arrow.png" alt="">
+        <span class="eyebrow" style="display:block;margin-bottom:14px;">about the night</span>
+        <h2>elevate saturdays</h2>
+        <p>
+          Edmonton's bi-weekly house and deep house night — every Saturday July &amp; August
+          at The Cask &amp; Barrel. Curated by residents Poloismz and Sotero.
+        </p>
+        <p>
+          The room runs warm and deep: vocal-driven house, rolling grooves, occasional
+          Afro house swing. Sets are built live, reading the crowd. No formula.
+          Low lights. Good people playing good music.
+        </p>
+        <p class="pull">the dancefloor is the point.</p>
+
+        <hr style="border:none;border-top:1px solid var(--line);margin:32px 0;">
+
+        <div class="detail-row">
+          <span class="label">venue</span>
+          <span class="value">The Cask &amp; Barrel, Edmonton</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">schedule</span>
+          <span class="value">every other saturday</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">hours</span>
+          <span class="value">9pm – 2am</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">residents</span>
+          <span class="value">poloismz · sotero</span>
+        </div>
+        <div class="detail-row" id="price-row" style="display:none;">
+          <span class="label">admission</span>
+          <span class="value" id="price-value">—</span>
+        </div>
+      </div>
+
+      <!-- DATES -->
+      <div class="detail-block">
+        <span class="eyebrow" style="display:block;margin-bottom:14px;">upcoming dates</span>
+        <h2>dates</h2>
+        <div class="upcoming-dates" id="dates-list"></div>
+
+        <hr style="border:none;border-top:1px solid var(--line);margin:36px 0;">
+
+        <span class="eyebrow" style="display:block;margin-bottom:14px;">residents</span>
+        <div class="residents-row">
+          <a class="resident-chip" href="../../artists/poloismz/">
+            <div>
+              <div class="chip-role">resident dj · founder</div>
+              <div>poloismz</div>
+            </div>
+          </a>
+          <div class="resident-chip">
+            <div>
+              <div class="chip-role">resident dj</div>
+              <div>sotero</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="foot-logo" src="../../assets/logo.png" alt="come-unity">
+  <div class="foot-brand">come-unity</div>
+  <div class="foot-links">
+    <a href="../../artists/">artists</a>
+    <a href="../../events/">events</a>
+    <a href="https://instagram.com/poloismz_radio" target="_blank" rel="noopener">instagram</a>
+    <a href="mailto:hello@come-unity.productions">hello@come-unity.productions</a>
+  </div>
+  <div class="copyright">© 2026 come-unity · Edmonton, AB</div>
+</footer>
+
+<script>
+/* =========================================================
+   UPCOMING DATES FOR ELEVATE SATURDAYS
+   ─────────────────────────────────────────────────────────
+   Fields:
+     date     — display date e.g. "11 July 2026"
+     note     — optional note e.g. "vol. 2" or ""
+     tickets  — ticket URL, or "" for no button
+     price    — e.g. "$10 adv / $15 door", or ""
+   ========================================================= */
+  const dates = [
+    {
+      date:    "11 July 2026",
+      note:    "elevate saturdays",
+      tickets: "",
+      price:   ""
+    },
+    {
+      date:    "25 July 2026",
+      note:    "elevate saturdays",
+      tickets: "",
+      price:   ""
+    }
+    /* ── ADD MORE DATES HERE ───────────────────────────────
+    {
+      date:    "9 August 2026",
+      note:    "vol. 3",
+      tickets: "https://eventbrite.ca/...",
+      price:   "$10 adv / $15 door"
+    },
+    ──────────────────────────────────────────────────────── */
+  ];
+
+  const list = document.getElementById('dates-list');
+  list.innerHTML = dates.map(d => `
+    <div class="date-row">
+      <div>
+        <div class="d-date">${d.date}</div>
+        ${d.note ? `<div class="d-meta">${d.note}</div>` : ''}
+      </div>
+      <div class="d-ticket">
+        ${d.tickets
+          ? `<a class="btn btn-primary" href="${d.tickets}" target="_blank" rel="noopener">tickets</a>`
+          : `<span class="d-meta">free entry</span>`}
+      </div>
+    </div>
+  `).join('') || `<p style="color:var(--text-dim);font-family:'Space Mono',monospace;font-size:.8rem;">next date coming soon.</p>`;
+
+  if (dates[0] && dates[0].tickets) {
+    document.getElementById('hero-ticket-cta').innerHTML =
+      `<a class="btn btn-primary" href="${dates[0].tickets}" target="_blank" rel="noopener">get tickets — ${dates[0].date}</a>`;
+  }
+
+  if (dates[0] && dates[0].price) {
+    document.getElementById('price-row').style.display = 'flex';
+    document.getElementById('price-value').textContent = dates[0].price;
+  }
+</script>
+
+</body>
+</html>
