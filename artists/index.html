@@ -6,6 +6,43 @@
   <title>artists — come-unity</title>
   <meta name="description" content="The artists behind come-unity's Edmonton house nights.">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* Artist card link row */
+    .artist-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .artist-link-btn {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      border: 1px solid var(--line);
+      padding: 5px 12px;
+      border-radius: 999px;
+      transition: border-color .2s, color .2s;
+      white-space: nowrap;
+    }
+    .artist-link-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .artist-link-btn.primary {
+      color: var(--accent-2);
+      border-color: var(--accent-dim);
+    }
+    .artist-link-btn.primary:hover {
+      border-color: var(--accent-2);
+      color: var(--text);
+    }
+    /* Card is now a div — make the photo area clickable as the profile link */
+    .artist-card { cursor: default; }
+    .artist-card .photo { cursor: pointer; }
+    .artist-card .photo:hover { opacity: 0.85; transition: opacity .2s; }
+  </style>
 </head>
 <body>
 
@@ -17,7 +54,7 @@
   <div class="nav-links">
     <a href="../artists/" class="active">Artists</a>
     <a href="../events/">Events</a>
-    <a href="https://instagram.com/poloismz" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://instagram.com/poloismz_radio" target="_blank" rel="noopener">Instagram</a>
   </div>
 </nav>
 
@@ -39,29 +76,63 @@
   <div class="section-inner">
     <div class="grid-3" id="artist-grid">
 
-      <!-- POLOISMZ -->
-      <a class="artist-card" href="poloismz/">
-        <div class="photo" style="background: linear-gradient(135deg, #1c1030 10%, #07070a 80%);">
-          <!-- swap for a real photo: style="background-image:url('../assets/poloismz.jpg')" -->
-          <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"
-               style="width:100%;height:100%;opacity:0.18;position:absolute;inset:0;">
-            <defs>
-              <radialGradient id="pg" cx="50%" cy="50%" r="50%">
-                <stop offset="0%"   stop-color="#c87dff"/>
-                <stop offset="100%" stop-color="#07070a"/>
-              </radialGradient>
-            </defs>
-            <circle cx="200" cy="200" r="200" fill="url(#pg)"/>
-          </svg>
-        </div>
+      <!-- ── POLOISMZ ────────────────────────────────────── -->
+      <div class="artist-card">
+
+        <!-- Photo — clicks through to the profile page -->
+        <a href="poloismz/">
+          <div class="photo" style="background: linear-gradient(135deg, #1c1030 10%, #07070a 80%);">
+            <!-- Swap for a real photo: style="background-image:url('../assets/poloismz.jpg')" -->
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"
+                 style="width:100%;height:100%;opacity:0.18;position:absolute;inset:0;">
+              <defs>
+                <radialGradient id="pg" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"   stop-color="#c87dff"/>
+                  <stop offset="100%" stop-color="#07070a"/>
+                </radialGradient>
+              </defs>
+              <circle cx="200" cy="200" r="200" fill="url(#pg)"/>
+            </svg>
+          </div>
+        </a>
+
         <div class="info">
           <div class="role">resident dj · founder</div>
           <h3>Poloismz</h3>
           <p>Electronica, House, Deep House, and the spaces between — Edmonton's resident for Elevate Saturdays.</p>
-        </div>
-      </a>
 
-      <!-- ADD MORE ARTISTS HERE — copy the block above and change the details -->
+          <!-- ── ARTIST LINKS ───────────────────────────────
+               Update the href values below:
+               profile  → leave as-is (links to the profile page)
+               bio      → paste the URL to your bio PDF
+               assets   → paste the URL to your Google Drive folder
+          ─────────────────────────────────────────────────── -->
+          <div class="artist-links">
+
+            <a class="artist-link-btn primary" href="poloismz/">
+              profile →
+            </a>
+
+            <a class="artist-link-btn"
+               href="PASTE_BIO_PDF_URL_HERE"
+               target="_blank"
+               rel="noopener">
+              artist bio ↗
+            </a>
+
+            <a class="artist-link-btn"
+               href="PASTE_GOOGLE_DRIVE_URL_HERE"
+               target="_blank"
+               rel="noopener">
+              artist assets ↗
+            </a>
+
+          </div>
+        </div>
+      </div>
+      <!-- ── END POLOISMZ ───────────────────────────────── -->
+
+      <!-- ADD MORE ARTISTS HERE — copy the block above and update the details -->
 
     </div>
 
