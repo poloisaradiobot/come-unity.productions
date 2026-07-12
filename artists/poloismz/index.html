@@ -20,9 +20,7 @@
       padding: 80px 48px 100px;
       max-width: 1180px; margin: 0 auto;
     }
-    .profile-photo-wrap {
-      position: sticky; top: 100px;
-    }
+    .profile-photo-wrap { position: sticky; top: 100px; }
     .profile-photo {
       width: 100%; aspect-ratio: 1;
       border-radius: var(--radius);
@@ -32,9 +30,7 @@
       overflow: hidden; position: relative;
     }
     .profile-photo svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.22; }
-    .profile-socials {
-      display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px;
-    }
+    .profile-socials { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
     .profile-socials a {
       font-family: 'Space Mono', monospace; font-size: 0.75rem;
       color: var(--text-dim); border: 1px solid var(--line);
@@ -54,18 +50,57 @@
       padding: 5px 12px; border-radius: 999px;
     }
 
+    /* ── GEAR BANNER ── */
+    .gear-banner {
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      height: 340px;
+      overflow: hidden;
+      margin-top: 48px;
+      margin-bottom: 48px;
+    }
+    .gear-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(0.65) saturate(1.1);
+    }
+    .gear-banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(7,7,10,0.6) 0%,
+        rgba(7,7,10,0.1) 40%,
+        rgba(7,7,10,0.1) 60%,
+        rgba(7,7,10,0.7) 100%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gear-banner-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.45);
+      text-transform: lowercase;
+    }
+
     /* ── MIXES ── */
     .mix-list { display: flex; flex-direction: column; gap: 14px; }
     .mix-item {
       background: var(--bg-card); border: 1px solid var(--line);
-      border-radius: var(--radius); overflow: hidden;
-      transition: border-color .2s;
+      border-radius: var(--radius); overflow: hidden; transition: border-color .2s;
     }
     .mix-item:hover { border-color: var(--accent-dim); }
-    .mix-item-row {
-      display: flex; align-items: center; gap: 16px;
-      padding: 16px 20px;
-    }
+    .mix-item-row { display: flex; align-items: center; gap: 16px; padding: 16px 20px; }
     .mix-num { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--accent-dim); min-width: 24px; }
     .mix-info { flex: 1; }
     .mix-info .title { font-size: 1rem; font-weight: 600; text-transform: lowercase; }
@@ -78,35 +113,18 @@
     .listen-grid { display: flex; flex-direction: column; gap: 20px; }
     .listen-item {
       background: var(--bg-card); border: 1px solid var(--line);
-      border-radius: var(--radius); overflow: hidden;
-      transition: border-color .2s;
+      border-radius: var(--radius); overflow: hidden; transition: border-color .2s;
     }
     .listen-item:hover { border-color: var(--accent-dim); }
-    .listen-label {
-      padding: 14px 18px 0;
-      font-family: 'Space Mono', monospace; font-size: 0.7rem;
-      color: var(--accent-2); letter-spacing: 0.12em; text-transform: lowercase;
-    }
-    .listen-note {
-      padding: 4px 18px 12px;
-      font-size: 0.88rem; color: var(--text-dim); line-height: 1.5;
-    }
-    .listen-item iframe {
-      display: block; width: 100%; border: none;
-      border-top: 1px solid var(--line);
-    }
-    .listen-link-row {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 16px 18px;
-    }
-    .listen-link-row .l-platform {
-      font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 4px;
-    }
+    .listen-label { padding: 14px 18px 0; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--accent-2); letter-spacing: 0.12em; text-transform: lowercase; }
+    .listen-note { padding: 4px 18px 12px; font-size: 0.88rem; color: var(--text-dim); line-height: 1.5; }
+    .listen-item iframe { display: block; width: 100%; border: none; border-top: 1px solid var(--line); }
+    .listen-link-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; }
+    .listen-link-row .l-platform { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--accent); margin-bottom: 4px; }
     .listen-link-row .l-title { font-size: 0.95rem; font-weight: 600; color: var(--text); }
     .listen-link-row .l-note  { font-size: 0.82rem; color: var(--text-dim); margin-top: 3px; }
     .listen-link-row a.open-btn {
-      flex-shrink: 0;
-      font-family: 'Space Mono', monospace; font-size: 0.72rem;
+      flex-shrink: 0; font-family: 'Space Mono', monospace; font-size: 0.72rem;
       color: var(--accent-2); border: 1px solid var(--line);
       padding: 7px 16px; border-radius: 999px;
       transition: border-color .2s, color .2s; white-space: nowrap;
@@ -117,6 +135,7 @@
       .profile-layout { grid-template-columns: 1fr; padding: 50px 22px 80px; gap: 40px; }
       .profile-hero { padding: 140px 22px 0; }
       .profile-photo-wrap { position: static; }
+      .gear-banner { height: 220px; }
     }
   </style>
 </head>
@@ -150,8 +169,6 @@
   <!-- LEFT: PHOTO + SOCIALS -->
   <div class="profile-photo-wrap">
     <div class="profile-photo" style="background-image:url('../../assets/elevate-cask.jpg');">
-      <!-- To add a real photo: replace the style on .profile-photo above with
-           style="background-image:url('../../assets/poloismz.jpg')" -->
       <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <radialGradient id="pg" cx="50%" cy="50%" r="50%">
@@ -186,7 +203,7 @@
     </div>
 
     <p>
-      Poloismz is the DJ and founder behind come-unity productions and co-founder of Elevate Saturdays— Edmonton's bi-weekly house night.
+      Poloismz is the DJ and founder behind come-unity productions and co-founder of Elevate Saturdays — Edmonton's bi-weekly house night.
       Working across house, deep house, and the textures between, their sets are built around feel rather than
       formula: reading the room, building slow, going deep.
     </p>
@@ -194,28 +211,27 @@
       Bilingual, rooted in Edmonton, and shaped by a background that runs from music education to community
       building — every Elevate Saturday is a direct extension of that; a space that feels like it belongs to
       the people in it, not just the person behind the decks.
-      
-    </p> 
+    </p>
     <p>
       Poloismz (Marco) is an Edmonton-based DJ whose sound was forged in the late-night transmissions of
       CFNY 102.9 Toronto — where Chris Sheppard and Deadly Headly introduced him to the full spectrum
-      of house and electronic music in 1988. It left a permanent mark—shaping not only his taste, but the way he moves 
-      through the world. From that first spark, electronic music became a constant: a place to reset, to explore, and to feel 
+      of house and electronic music in 1988. It left a permanent mark — shaping not only his taste, but the way he moves
+      through the world. From that first spark, electronic music became a constant: a place to reset, to explore, and to feel
       connected to something bigger than himself across genres, eras, and dance floors.
-    </p> 
+    </p>
     <p>
-      By late 1999, he was performing under the name DJ Marco Polo, best known for Acid Techno while also leaning into Progressive House and Trance. 
-      Along the way, he held down sets at spots like Backroom Vodka Bar and The Apartment (later known as WunderBar), and could be heard 
-      in the city’s after-hours circuit at venues such as The Studio, Therapy, and Climaxx. He currently holds a bi-weekly residency at 
-      Cask & Barrel as the founder of Elevate Saturdays — a growing Edmonton institution dedicated to good people, good music,
+      By late 1999, he was performing under the name DJ Marco Polo, best known for Acid Techno while also leaning into Progressive House and Trance.
+      Along the way, he held down sets at spots like Backroom Vodka Bar and The Apartment (later known as WunderBar), and could be heard
+      in the city's after-hours circuit at venues such as The Studio, Therapy, and Climaxx. He currently holds a bi-weekly residency at
+      Cask &amp; Barrel as the founder of Elevate Saturdays — a growing Edmonton institution dedicated to good people, good music,
       and the communities that form around both.
-    </p> 
+    </p>
     <p>
       Today, Poloismz Radio is recognized for wide-ranging, thoughtfully curated selections that move fluidly through
-      artists, textures, and tempos—always in pursuit of that unmistakable underground essence. 
-      More than just playing records, his mission is to help strengthen the community within house music’s own ecosystem: 
+      artists, textures, and tempos — always in pursuit of that unmistakable underground essence.
+      More than just playing records, his mission is to help strengthen the community within house music's own ecosystem:
       creating spaces where dancers, DJs, producers, and listeners feel welcomed, energized, and part of something living.
-    </p> 
+    </p>
     <p>
       Favorite producers and artists featured in his mixes include 1-800 Girls, Bad Snacks, BIBIO, Bella Boo, Lone, Ross From Friends, and many many more.
     </p>
@@ -225,13 +241,33 @@
 
     <!-- IN THE MIX -->
     <div class="sub-section-label">in the mix</div>
-    <p style="color:var(--text-dim); line-height:1.7; margin-bottom:32px;">
+    <p style="color:var(--text-dim); line-height:1.7; margin-bottom:0;">
       Sets typically move from warm, vocal-driven deep house through to rolling, minimal-leaning grooves —
       tempo staying tight around 110–128 BPM. Chicago soul influence on one end, tech house swing on the other.
       Never pre-planned. Always live, always reactive.
     </p>
 
-    <hr class="divider">
+  </div>
+</div>
+
+<!-- ── GEAR BANNER — full width between sections ── -->
+<!-- Upload rane-1.jpg to your assets/ folder on GitHub to activate this -->
+<div class="gear-banner">
+  <img
+    class="gear-banner-img"
+    src="../../assets/rane-1.jpg"
+    alt="Rane DJ controller — Poloismz setup">
+  <div class="gear-banner-overlay">
+    <span class="gear-banner-label">rane one · serato · edmonton</span>
+  </div>
+</div>
+
+<!-- MIXES & RESIDENCY — back inside a constrained layout -->
+<div class="profile-layout" style="padding-top:0;">
+  <div></div><!-- empty left column spacer -->
+  <div class="profile-info" style="padding-top:0;">
+
+    <hr class="divider" style="margin-top:0;">
 
     <!-- MIXES & RECORDINGS -->
     <div id="mixes" class="sub-section-label">mixes &amp; recordings</div>
@@ -254,13 +290,13 @@
       <div class="flyer">
         <div>
           <div class="venue-tag">the cask &amp; barrel · edmonton</div>
-          <div class="date-pill">every saturday</div>
+          <div class="date-pill">every other saturday</div>
         </div>
         <div class="lineup-text">elevate<br>saturdays</div>
       </div>
       <div class="body">
         <h3>elevate saturdays</h3>
-        <div class="meta">resident dj — come-unity</div>
+        <div class="meta">co-founder &amp; resident dj — come-unity</div>
       </div>
     </a>
 
@@ -282,31 +318,20 @@
 <script>
 /* =========================================================
    MIXES & RECORDINGS
-   ─────────────────────────────────────────────────────────
    Fields:
      title   - mix name
      detail  - e.g. "house / deep house · 45 min"
-     src     - SoundCloud embed src URL (shows inline player)
-                 Get it from SoundCloud → Share → Embed
-                 Copy ONLY the src="..." URL from the iframe
-                 Then change auto_play=true  →  auto_play=false
-     url     - plain listen link (leave "" if using src above)
+     src     - SoundCloud embed src URL (auto_play=false)
+     url     - plain listen link ("" if using src)
    ========================================================= */
   const mixes = [
     {
       title:  "Poloismz Mixes",
       detail: "house / deep house",
-      src:    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2040932775&color=%23c87dff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true",      
+      src:    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2040932775&color=%23c87dff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true",
       url:    ""
     }
-    /* ── ADD MORE MIXES HERE ───────────────────────────────
-     {
-      title:  "Nacho home studio",
-      detail: "electronica / house",
-      src:    "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2119127448&color=%232500ff&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-      url:    ""
-    }
-    ──────────────────────────────────────────────────────── */
+    /* ── ADD MORE MIXES HERE ─────────────────────────────── */
   ];
 
   const list = document.getElementById('mix-list');
@@ -331,25 +356,21 @@
     `).join('');
   }
 
-
 /* =========================================================
    WHAT I'M LISTENING TO
-   ─────────────────────────────────────────────────────────
-   TYPE "embed" — shows a full inline player
-     Fields:
-       platform  "spotify" | "tidal" | "soundcloud"
-       src       embed src URL only (not the full iframe tag)
-       height    player height in px (tidal: 275, spotify: 352)
-       label     short tag e.g. "deep house playlist"
-       note      optional description line
+   TYPE "embed" — full inline player
+     platform  "spotify" | "tidal" | "soundcloud"
+     src       embed src URL only
+     height    px (spotify: 352, tidal: 275)
+     label     short tag
+     note      optional description
 
-   TYPE "link" — simple card with an open button
-     Fields:
-       platform  any string e.g. "spotify" | "tidal"
-       title     artist / album / playlist name
-       url       full link to open
-       label     short tag e.g. "artist" | "playlist"
-       note      optional description line
+   TYPE "link" — simple card with open button
+     platform  string
+     title     name
+     url       full link
+     label     short tag
+     note      optional description
    ========================================================= */
   const listening = [
     {
@@ -360,24 +381,7 @@
       label:    "super chill indies",
       note:     "tracks I relax to"
     }
-    /* ── ADD MORE HERE ─────────────────────────────────────
-    {
-      type:     "embed",
-      platform: "spotify",
-      src:      "https://open.spotify.com/embed/playlist/YOUR_ID?utm_source=generator",
-      height:   352,
-      label:    "house rotation",
-      note:     "what's on while I'm working"
-    },
-    {
-      type:     "link",
-      platform: "tidal",
-      title:    "Larry Heard",
-      url:      "https://tidal.com/artist/...",
-      label:    "artist",
-      note:     "the blueprint for deep house"
-    },
-    ──────────────────────────────────────────────────────── */
+    /* ── ADD MORE HERE ──────────────────────────────────── */
   ];
 
   const embedContainer = document.getElementById('listening-embeds');
@@ -387,29 +391,23 @@
   } else {
     embedContainer.innerHTML = '<div class="listen-grid">' +
       listening.map(item => {
-        const labelHTML = item.label
-          ? `<div class="listen-label">${item.platform} · ${item.label}</div>` : '';
-        const noteHTML  = item.note
-          ? `<div class="listen-note">${item.note}</div>` : '';
+        const labelHTML = item.label ? `<div class="listen-label">${item.platform} · ${item.label}</div>` : '';
+        const noteHTML  = item.note  ? `<div class="listen-note">${item.note}</div>` : '';
 
         if (item.type === 'embed') {
-          const allow = item.platform === 'spotify'
+          const platformLower = item.platform.toLowerCase();
+          const allow = platformLower === 'spotify'
             ? 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
             : 'encrypted-media; fullscreen; clipboard-write; web-share';
-          const sandbox = item.platform === 'tidal'
+          const sandbox = platformLower === 'tidal'
             ? 'sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"'
             : '';
           return `
             <div class="listen-item">
               ${labelHTML}${noteHTML}
-              <iframe
-                src="${item.src}"
-                height="${item.height || 300}"
-                allow="${allow}"
-                ${sandbox}
-                loading="lazy"
-                style="color-scheme: light dark">
-              </iframe>
+              <iframe src="${item.src}" height="${item.height || 300}"
+                allow="${allow}" ${sandbox} loading="lazy"
+                style="color-scheme: light dark"></iframe>
             </div>`;
         } else {
           return `
@@ -424,8 +422,7 @@
               </div>
             </div>`;
         }
-      }).join('') +
-    '</div>';
+      }).join('') + '</div>';
   }
 </script>
 
