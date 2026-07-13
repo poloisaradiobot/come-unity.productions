@@ -7,7 +7,6 @@
   <meta name="description" content="The artists behind come-unity's Edmonton house nights.">
   <link rel="stylesheet" href="../assets/css/style.css">
   <style>
-    /* Artist card link row */
     .artist-links {
       display: flex;
       flex-wrap: wrap;
@@ -26,22 +25,33 @@
       transition: border-color .2s, color .2s;
       white-space: nowrap;
     }
-    .artist-link-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .artist-link-btn.primary {
-      color: var(--accent-2);
-      border-color: var(--accent-dim);
-    }
-    .artist-link-btn.primary:hover {
-      border-color: var(--accent-2);
-      color: var(--text);
-    }
-    /* Card is now a div — make the photo area clickable as the profile link */
+    .artist-link-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .artist-link-btn.primary { color: var(--accent-2); border-color: var(--accent-dim); }
+    .artist-link-btn.primary:hover { border-color: var(--accent-2); color: var(--text); }
+    /* Promo mix button — slightly different colour so it stands out */
+    .artist-link-btn.promo { color: var(--accent); border-color: var(--accent-dim); }
+    .artist-link-btn.promo:hover { border-color: var(--accent); color: var(--text); background: rgba(200,125,255,0.08); }
     .artist-card { cursor: default; }
     .artist-card .photo { cursor: pointer; }
     .artist-card .photo:hover { opacity: 0.85; transition: opacity .2s; }
+
+    /* Divider between profile/promo links and EPK links */
+    .artist-links-divider {
+      width: 100%;
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 8px 0 2px;
+    }
+    .artist-links-label {
+      width: 100%;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--text-dim);
+      opacity: 0.5;
+      margin-top: 2px;
+      text-transform: lowercase;
+    }
   </style>
 </head>
 <body>
@@ -78,11 +88,9 @@
 
       <!-- ── POLOISMZ ────────────────────────────────────── -->
       <div class="artist-card">
-
-        <!-- Photo — clicks through to the profile page -->
         <a href="poloismz/">
           <div class="photo" style="background: linear-gradient(135deg, #1c1030 10%, #07070a 80%);">
-            <!-- Swap for a real photo: style="background-image:url('../assets/poloismz.jpg')" -->
+            <!-- Swap for real photo: add style="background-image:url('../assets/poloismz-profile.jpg')" -->
             <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"
                  style="width:100%;height:100%;opacity:0.18;position:absolute;inset:0;">
               <defs>
@@ -95,36 +103,39 @@
             </svg>
           </div>
         </a>
-
         <div class="info">
-          <div class="role">Resident dj · founder</div>
+          <div class="role">founder, come-unity · co-founder &amp; co-resident, elevate saturdays</div>
           <h3>Poloismz</h3>
-          <p>Electronica, House, Deep House, and the spaces between — Edmonton's resident for Elevate Saturdays.</p>
+          <p>Electronica, House, Deep House, and the spaces between — founder of come-unity and co-founder of Elevate Saturdays at The Cask &amp; Barrel.</p>
 
-          <!-- ── ARTIST LINKS ───────────────────────────────
-               Update the href values below:
-               profile  → leave as-is (links to the profile page)
-               bio      → paste the URL to your bio PDF
-               assets   → paste the URL to your Google Drive folder
-          ─────────────────────────────────────────────────── -->
           <div class="artist-links">
 
-            <a class="artist-link-btn primary" href="poloismz/">
-              profile →
+            <!-- Profile & promo links -->
+            <span class="artist-links-label">links</span>
+            <a class="artist-link-btn primary" href="poloismz/">profile →</a>
+            <a class="artist-link-btn promo"
+               href="https://soundcloud.com/poloismz_radio"
+               target="_blank" rel="noopener">
+              promo mix ↗
+            </a>
+            <a class="artist-link-btn"
+               href="https://instagram.com/poloismz_radio"
+               target="_blank" rel="noopener">
+              instagram ↗
             </a>
 
+            <!-- EPK links -->
+            <hr class="artist-links-divider">
+            <span class="artist-links-label">epk</span>
             <a class="artist-link-btn"
                href="https://drive.google.com/drive/folders/1bJyHKAlG4H6Hlp6-M4jdJMh9kaRIOLY-?usp=sharing"
-               target="_blank"
-               rel="noopener">
-              Artist EPK Biography ↗
+               target="_blank" rel="noopener">
+              artist biography ↗
             </a>
-
             <a class="artist-link-btn"
                href="https://drive.google.com/drive/folders/1yzHBbVmhUud498QzlTayt3z6YWM7Vcms?usp=sharing"
-               target="_blank"
-               rel="noopener">
-              Artist EPK Assets ↗
+               target="_blank" rel="noopener">
+              artist assets ↗
             </a>
 
           </div>
@@ -132,7 +143,15 @@
       </div>
       <!-- ── END POLOISMZ ───────────────────────────────── -->
 
-      <!-- ADD MORE ARTISTS HERE — copy the block above and update the details -->
+      <!-- ── ADD MORE ARTISTS BELOW ─────────────────────────
+           Copy the block above and update:
+           - photo href and background
+           - role, name, bio text
+           - profile href
+           - promo mix URL
+           - instagram URL
+           - EPK biography and assets URLs
+      ──────────────────────────────────────────────────────── -->
 
     </div>
 
@@ -153,6 +172,10 @@
   </div>
   <div class="copyright">© 2026 come-unity · Edmonton, AB</div>
 </footer>
+
+</body>
+</html>
+
 
 </body>
 </html>
