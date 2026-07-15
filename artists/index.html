@@ -28,14 +28,11 @@
     .artist-link-btn:hover { border-color: var(--accent); color: var(--accent); }
     .artist-link-btn.primary { color: var(--accent-2); border-color: var(--accent-dim); }
     .artist-link-btn.primary:hover { border-color: var(--accent-2); color: var(--text); }
-    /* Promo mix button — slightly different colour so it stands out */
     .artist-link-btn.promo { color: var(--accent); border-color: var(--accent-dim); }
     .artist-link-btn.promo:hover { border-color: var(--accent); color: var(--text); background: rgba(200,125,255,0.08); }
     .artist-card { cursor: default; }
     .artist-card .photo { cursor: pointer; }
     .artist-card .photo:hover { opacity: 0.85; transition: opacity .2s; }
-
-    /* Divider between profile/promo links and EPK links */
     .artist-links-divider {
       width: 100%;
       border: none;
@@ -86,11 +83,10 @@
   <div class="section-inner">
     <div class="grid-3" id="artist-grid">
 
-      <!-- ── POLOISMZ ────────────────────────────────────── -->
+      <!-- ── POLOISMZ — links to internal profile page ─── -->
       <div class="artist-card">
         <a href="poloismz/">
-          <div class="photo" style="background-image:url('../assets/poloismz-profile-asset.png')">
-            <!-- Swap for real photo: add style="background-image:url('../assets/poloismz-profile.jpg')" -->
+          <div class="photo" style="background-image:url('../assets/poloismz-profile-asset.png');">
             <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"
                  style="width:100%;height:100%;opacity:0.18;position:absolute;inset:0;">
               <defs>
@@ -107,107 +103,79 @@
           <div class="role">founder, come-unity · co-founder &amp; co-resident, elevate saturdays</div>
           <h3>Poloismz</h3>
           <p>Electronica, House, Deep House, and the spaces between — founder of come-unity and co-founder of Elevate Saturdays at The Cask &amp; Barrel.</p>
-
           <div class="artist-links">
-
-            <!-- Profile & promo links -->
             <span class="artist-links-label">links</span>
             <a class="artist-link-btn primary" href="poloismz/">profile →</a>
             <a class="artist-link-btn promo"
                href="https://www.mixcloud.com/poloismz_radio/poloismz-house/"
-               target="_blank" rel="noopener">
-              promo mix ↗
-            </a>
+               target="_blank" rel="noopener">promo mix ↗</a>
             <a class="artist-link-btn"
-               href="https://https://www.instagram.com/poloismz_radio/"
-               target="_blank" rel="noopener">
-              instagram ↗
-            </a>
-
-            <!-- EPK links -->
+               href="https://www.instagram.com/poloismz_radio/"
+               target="_blank" rel="noopener">instagram ↗</a>
             <hr class="artist-links-divider">
             <span class="artist-links-label">epk</span>
             <a class="artist-link-btn"
                href="https://drive.google.com/file/d/1xSNrJrAR1ND73PIm9w3QcKipz5gDo74i/view?usp=drive_link"
-               target="_blank" rel="noopener">
-              artist biography ↗
-            </a>
+               target="_blank" rel="noopener">artist biography ↗</a>
             <a class="artist-link-btn"
                href="https://drive.google.com/drive/folders/1yzHBbVmhUud498QzlTayt3z6YWM7Vcms?usp=sharing"
-               target="_blank" rel="noopener">
-              artist assets ↗
-            </a>
-
+               target="_blank" rel="noopener">artist assets ↗</a>
           </div>
         </div>
       </div>
-      <!-- ── END POLOISMZ ───────────────────────────────── -->
 
-      <!-- ── ADD MORE ARTISTS BELOW ─────────────────────────
-           Copy the block above and update:
-           - photo href and background
-           - role, name, bio text
-           - profile href
-           - promo mix URL
-           - instagram URL
-           - EPK biography and assets URLs
-      ──────────────────────────────────────────────────────── -->
-      <!-- ── CHUCKLES ────────────────────────────────────── -->
+      <!-- ── CHUCKLES — photo & profile button link to his external website ── -->
       <div class="artist-card">
-        <a href="chuckles/">
-          <div class="photo" style="background-image:url('../assets/chuckles-profile.png')">
-            <!-- Swap for real photo: add style="background-image:url('../assets/poloismz-profile.jpg')" -->
+        <a href="https://djchuckles.ca/" target="_blank" rel="noopener">
+          <div class="photo" style="background-image:url('../assets/chuckles-profile.png');">
             <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"
                  style="width:100%;height:100%;opacity:0.18;position:absolute;inset:0;">
               <defs>
-                <radialGradient id="pg" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"   stop-color="#c87dff"/>
+                <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"   stop-color="#5ad1e8"/>
                   <stop offset="100%" stop-color="#07070a"/>
                 </radialGradient>
               </defs>
-              <circle cx="200" cy="200" r="200" fill="url(#pg)"/>
+              <circle cx="200" cy="200" r="200" fill="url(#g1)"/>
             </svg>
           </div>
         </a>
         <div class="info">
-          <div class="role">guest dj elevate saturdays</div>
+          <div class="role">guest dj · elevate saturdays</div>
           <h3>Chuckles</h3>
           <p>House &amp; Hypnotic Techno.</p>
-
           <div class="artist-links">
-
-            <!-- Profile & promo links -->
             <span class="artist-links-label">links</span>
-            <a class="artist-link-btn primary" href="chuckles/">profile →</a>
+            <a class="artist-link-btn primary"
+               href="https://djchuckles.ca/"
+               target="_blank" rel="noopener">website →</a>
             <a class="artist-link-btn promo"
                href="https://on.soundcloud.com/45ceeHq8dcLmLsLufe"
-               target="_blank" rel="noopener">
-              promo mix ↗
-            </a>
+               target="_blank" rel="noopener">promo mix ↗</a>
             <a class="artist-link-btn"
-               href="https://www.instagram.com/deejaychuckles//"
-               target="_blank" rel="noopener">
-              instagram ↗
-            </a>
-
-            <!-- EPK links -->
+               href="https://www.instagram.com/deejaychuckles/"
+               target="_blank" rel="noopener">instagram ↗</a>
             <hr class="artist-links-divider">
             <span class="artist-links-label">epk</span>
             <a class="artist-link-btn"
                href="https://drive.google.com/drive/folders/1GGuwhRO0NbtCq7yBBUGTCaOXUslXkbno?usp=drive_link"
-               target="_blank" rel="noopener">
-              artist assets ↗
-            </a>
-            <a class="artist-link-btn"
-               href="https://djchuckles.ca/"
-               target="_blank" rel="noopener">
-              artist website ↗
-            </a>
-
+               target="_blank" rel="noopener">artist assets ↗</a>
           </div>
         </div>
       </div>
       <!-- ── END CHUCKLES ───────────────────────────────── -->
+
+      <!-- ── ADD MORE ARTISTS BELOW ─────────────────────────
+           For an artist with an INTERNAL profile page (like Poloismz):
+             photo <a href="artistname/"> — local folder path
+             profile button href="artistname/"
+
+           For an artist with an EXTERNAL website (like Chuckles):
+             photo <a href="https://theirwebsite.com" target="_blank" rel="noopener">
+             profile button href="https://theirwebsite.com" target="_blank" rel="noopener"
+             change button label to: website →
+      ──────────────────────────────────────────────────────── -->
+
     </div>
 
     <p style="margin-top:56px; font-family:'Space Mono',monospace; font-size:0.8rem; color:var(--text-dim); text-align:center;">
@@ -231,6 +199,3 @@
 </body>
 </html>
 
-
-</body>
-</html>
