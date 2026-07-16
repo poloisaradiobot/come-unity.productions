@@ -122,7 +122,8 @@
     }
     container.innerHTML = list.map(ev => `
       <a class="event-card" href="${ev.slug || 'events/'}">
-        <div class="flyer${ev.image ? '' : ''}" style="${ev.image ? `background-image:url('${ev.image}')` : ''}">
+        <div class="flyer" style="background-image:url('assets/elevate/Elevate_Banner.jpg')">
+
           <div>
             <div class="venue-tag">${ev.venue}</div>
             <div class="date-pill">${ev.date}</div>
